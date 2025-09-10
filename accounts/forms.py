@@ -32,7 +32,7 @@ class CustomSignupForm(SignupForm):
             subject='Добро пожаловать к нам на сайт!',
             message=f'{user.username}, вы успешно зарегистрированы!',
             from_email='lapetrla@yandex.ru',
-            recipient_list=['kav@promventholod.ru'],
+            recipient_list=[user.email],
             fail_silently=False,
         )
         print('DEBUG: Письмо отправлено!')  # <- отладка
