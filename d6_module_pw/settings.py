@@ -167,3 +167,9 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
 DEFAULT_FROM_EMAIL = 'lapetrla@yandex.ru'
+
+SERVER_EMAIL = 'lapetrla@yandex.ru'
+
+MANAGERS = (
+    ('kav', 'kav@promventholod.ru'),
+)
