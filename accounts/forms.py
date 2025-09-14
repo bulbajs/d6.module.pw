@@ -46,5 +46,10 @@ class CustomSignupForm(SignupForm):
             message=f'{user.username}, зарегался и хочет купить у нас арбуз !',
         )
 
+        mail_admins(
+            subject='Там кто-то зарегался',
+            message=f'{user.username}, зарегался и хочет купить у нас арбуз !',
+        )
+
         print('DEBUG: Письмо отправлено!')  # <- отладка
         return user

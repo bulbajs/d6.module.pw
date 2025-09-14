@@ -154,7 +154,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -165,6 +166,7 @@ EMAIL_HOST_USER = 'lapetrla'
 EMAIL_HOST_PASSWORD = 'lpnovozdukcpacrf'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+EMAIL_SUBJECT_PREFIX = '[bulba]'
 
 DEFAULT_FROM_EMAIL = 'lapetrla@yandex.ru'
 
@@ -172,4 +174,8 @@ SERVER_EMAIL = 'lapetrla@yandex.ru'
 
 MANAGERS = (
     ('kav', 'kav@promventholod.ru'),
+)
+
+ADMINS = (
+    ('lapetrla', 'lapetrla@yandex.ru'),
 )
