@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.core.validators import MaxLengthValidator, MinValueValidator
+from django.contrib.auth.models import User
 
 
 class Product(models.Model):
@@ -23,3 +24,7 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.name.title()}'
 
+
+class Subscriptions(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='subscriptions')
+    category = models.ForeignKey(to='Category', on_delete=models.CASCADE, related_name='subscriptions')
