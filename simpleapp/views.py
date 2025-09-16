@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Product, Category, Subscriptions
+from .models import Product, Category, Subscription
 from datetime import datetime
 from .filters import ProductFilter
 from .forms import ProductForm
@@ -83,8 +83,10 @@ def subscription(request):
         action = request.POST.get('action')
 
         if action == 'subscribe':
-            Subscriptions.objects.create(user = request.user, category = category)
+            Subscription.objects.create(user = request.user, category = category)
         elif action == 'unsubscribe':
-            Subscriptions.objects.create(user=request.user, category=category).delete()
+            Subscription.objects.create(user=request.user, category=category).delete()
 
+    categories_with_subscriptions = Category.objects.annotate(user_subscribed=Exists(Subscription.objects.filter(user=request.user, category=OuterRef('pk'),))).order_by('name')
+    return render(request, 'subscribe.html', {'categories': categories_with_subscriptions})
 

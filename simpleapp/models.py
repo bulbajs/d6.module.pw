@@ -25,6 +25,9 @@ class Category(models.Model):
         return f'{self.name.title()}'
 
 
-class Subscriptions(models.Model):
+class Subscription(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='subscriptions')
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE, related_name='subscriptions')
+
+
+
