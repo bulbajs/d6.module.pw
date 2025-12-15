@@ -5,7 +5,9 @@ Subscriptions
 {% endblock title %}
 
 {% block content %}
-    {% for category in categories  %}
+    <br>
+    <h2>Список категорий</h2><hr/>
+    {% for category in categories %}
         <p>
             {{ category.name }}
             <form method="POST">

@@ -11,7 +11,7 @@
     <h3>Удаление товара </h3>
     <hr>
     <form action="" method="post">
-        {% crsf_token %}
+        {% csrf_token %}
         {{form.as_p}}
         <p>Удаляем {{object.name}} ?</p>
         <input type="submit" value="Удалить" />
